@@ -14,14 +14,14 @@ describe('Yurii Parfinenko Homework', () => {
         cy.get('#username').type('tomsmith');
         cy.get('#password').type('SuperSecretPassword!');
         cy.get('.fa').click();
-        cy.get('#flash').contains('You logged into a secure area!');
+        cy.get('#flash').should('contain', 'You logged into a secure area!');
     });
 
     it ('login with invalid creds', () => {
         cy.get('#username').type('tomsmithInvalid');
         cy.get('#password').type('NotSuperSecretPassword!');
         cy.get('.fa').click();
-        cy.get('#flash').contains('Your username is invalid!');
+        cy.get('#flash').should('contain', 'Your username is invalid!');
     });
 
     it ('logout from the app', () => {
@@ -29,7 +29,7 @@ describe('Yurii Parfinenko Homework', () => {
         cy.get('#password').type('SuperSecretPassword!');
         cy.get('.fa').click();
         cy.get('.button').click();
-        cy.get('#flash').contains('You logged out of the secure area!');
+        cy.get('#flash').should('contain', 'You logged out of the secure area!');
     });
 
 });
